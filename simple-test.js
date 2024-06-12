@@ -1,5 +1,8 @@
 import http from 'k6/http';
 import { check } from 'k6';
+import { SharedArray } from 'k6/data';
+
+
 
 export let options = {
     vus: 1, // Number of virtual users
@@ -8,6 +11,7 @@ export let options = {
     noConnectionReuse: false,
     insecureSkipTLSVerify: true
 };
+
 
 export default function () {
     const res = http.get('https://localhost:7033/weatherforecast'); // Capture the response in the 'res' variable
